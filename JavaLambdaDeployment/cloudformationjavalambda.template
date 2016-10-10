@@ -1,0 +1,24 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "LF9MBL": {
+      "Type": "AWS::Lambda::Function",
+      "Properties": {
+        "Code": {
+          "S3Bucket": "gkatziouroeides",
+          "S3Key" : "JavaLambdaDeployment.zip"
+        },
+        "FunctionName": "SimpleRequest",
+        "Handler": "com.gkatzioura.deployment.lambda.RequestFunctionHandler",
+        "MemorySize": 128,
+        "Role":"arn:aws:iam::274402012893:role/lambda_basic_execution",
+        "Runtime":"java8"
+      },
+      "Metadata": {
+        "AWS::CloudFormation::Designer": {
+          "id": "66b2b325-f19a-4d7d-a7a9-943dd8cd4a5c"
+        }
+      }
+    }
+  }
+}
