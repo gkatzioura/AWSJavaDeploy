@@ -13,11 +13,6 @@
         "MemorySize": 128,
         "Role": "arn:aws:iam::274402012893:role/lambda_basic_execution",
         "Runtime": "java8"
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "66b2b325-f19a-4d7d-a7a9-943dd8cd4a5c"
-        }
       }
     },
     "AGM25KFD": {
@@ -61,11 +56,6 @@
           "StatusCode": 200
         }]
       },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "dd6e26ef-bea9-49f9-946b-3bc242845605"
-        }
-      },
       "DependsOn": [
         "LF9MBL",
         "AGR2JDQ8",
@@ -86,11 +76,6 @@
         },
         "PathPart": "divide"
       },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "fe9e70dd-0e3c-44e3-b52c-a6219d0ed3c2"
-        }
-      },
       "DependsOn": [
         "AGRA16PAA"
       ]
@@ -99,11 +84,6 @@
       "Type": "AWS::ApiGateway::RestApi",
       "Properties": {
         "Name": "CalculationApi"
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "eb746ccf-2d0d-4fa4-8f44-a13d9b0bdfcd"
-        }
       }
     },
     "LPI6K5": {
@@ -115,111 +95,8 @@
         "SourceArn": {"Fn::Join": ["",
           ["arn:aws:execute-api:", {"Ref": "AWS::Region"}, ":", {"Ref": "AWS::AccountId"}, ":", {"Ref": "AGRA16PAA"}, "/*"]
         ]}
-      },
-      "Metadata": {
-        "AWS::CloudFormation::Designer": {
-          "id": "09263f6a-8477-4fbf-b9d5-ec860b027e2e"
-        }
       }
     }
-  },
-  "Metadata": {
-    "AWS::CloudFormation::Designer": {
-      "eb746ccf-2d0d-4fa4-8f44-a13d9b0bdfcd": {
-        "size": {
-          "width": 420,
-          "height": 420
-        },
-        "position": {
-          "x": 60,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": [
-          "fe9e70dd-0e3c-44e3-b52c-a6219d0ed3c2",
-          "dd6e26ef-bea9-49f9-946b-3bc242845605"
-        ]
-      },
-      "fe9e70dd-0e3c-44e3-b52c-a6219d0ed3c2": {
-        "size": {
-          "width": 240,
-          "height": 240
-        },
-        "position": {
-          "x": -330,
-          "y": 120
-        },
-        "z": 0,
-        "parent": "eb746ccf-2d0d-4fa4-8f44-a13d9b0bdfcd",
-        "embeds": [],
-        "isassociatedwith": [
-          "eb746ccf-2d0d-4fa4-8f44-a13d9b0bdfcd"
-        ],
-        "dependson": [
-          "eb746ccf-2d0d-4fa4-8f44-a13d9b0bdfcd"
-        ]
-      },
-      "66b2b325-f19a-4d7d-a7a9-943dd8cd4a5c": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 540,
-          "y": 90
-        },
-        "z": 1,
-        "embeds": []
-      },
-      "dd6e26ef-bea9-49f9-946b-3bc242845605": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": -60,
-          "y": -10
-        },
-        "z": 0,
-        "parent": "eb746ccf-2d0d-4fa4-8f44-a13d9b0bdfcd",
-        "embeds": [],
-        "dependson": [
-          "66b2b325-f19a-4d7d-a7a9-943dd8cd4a5c",
-          "fe9e70dd-0e3c-44e3-b52c-a6219d0ed3c2"
-        ],
-        "isrelatedto": [
-          "66b2b325-f19a-4d7d-a7a9-943dd8cd4a5c"
-        ]
-      },
-      "dff9fefb-24bd-455a-b76a-a105167b8935": {
-        "source": {
-          "id": "dd6e26ef-bea9-49f9-946b-3bc242845605"
-        },
-        "target": {
-          "id": "fe9e70dd-0e3c-44e3-b52c-a6219d0ed3c2"
-        },
-        "z": 4
-      },
-      "0d51d3b1-2f81-41f3-846d-6986cd623b27": {
-        "source": {
-          "id": "fe9e70dd-0e3c-44e3-b52c-a6219d0ed3c2"
-        },
-        "target": {
-          "id": "eb746ccf-2d0d-4fa4-8f44-a13d9b0bdfcd"
-        },
-        "z": 5
-      },
-      "09263f6a-8477-4fbf-b9d5-ec860b027e2e": {
-        "size": {
-          "width": 60,
-          "height": 60
-        },
-        "position": {
-          "x": 812,
-          "y": 298
-        },
-        "z": 0
-      }
-    }
-  }
+
+ }
 }
