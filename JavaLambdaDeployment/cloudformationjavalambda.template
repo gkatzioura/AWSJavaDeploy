@@ -5,7 +5,7 @@
       "Type": "AWS::Lambda::Function",
       "Properties": {
         "Code": {
-          "S3Bucket": "gkatziouroeides",
+          "S3Bucket": "lambda-functions",
           "S3Key" : "JavaLambdaDeployment.zip"
         },
         "FunctionName": "SimpleRequest",
