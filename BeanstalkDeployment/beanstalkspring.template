@@ -1,0 +1,60 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters" : {
+    "SourceCodeBucket" : {
+      "Type" : "String"
+    }
+  },
+  "Resources": {
+    "SpringBootApplication": {
+      "Type": "AWS::ElasticBeanstalk::Application",
+      "Properties": {
+        "Description":"Spring boot and elastic beanstalk"
+      }
+    },
+    "SpringBootApplicationVersion": {
+      "Type": "AWS::ElasticBeanstalk::ApplicationVersion",
+      "Properties": {
+        "ApplicationName":{"Ref":"SpringBootApplication"},
+        "SourceBundle": {
+                  "S3Bucket": {"Ref":"SourceCodeBucket"},
+                  "S3Key": "beanstalk-deployment-1.0-SNAPSHOT.jar"
+        }
+      }
+    },
+    "SpringBootBeanStalkConfigurationTemplate": {
+      "Type": "AWS::ElasticBeanstalk::ConfigurationTemplate",
+      "Properties": {
+        "ApplicationName": {"Ref":"SpringBootApplication"},
+        "Description":"A display of speed boot application",
+        "OptionSettings": [
+          {
+            "Namespace": "aws:autoscaling:asg",
+            "OptionName": "MinSize",
+            "Value": "2"
+          },
+          {
+            "Namespace": "aws:autoscaling:asg",
+            "OptionName": "MaxSize",
+            "Value": "2"
+          },
+          {
+            "Namespace": "aws:elasticbeanstalk:environment",
+            "OptionName": "EnvironmentType",
+            "Value": "LoadBalanced"
+          }
+        ],
+        "SolutionStackName": "64bit Amazon Linux 2016.09 v2.3.0 running Java 8"
+      }
+    },
+    "SpringBootBeanstalkEnvironment": {
+      "Type": "AWS::ElasticBeanstalk::Environment",
+      "Properties": {
+        "ApplicationName": {"Ref":"SpringBootApplication"},
+        "EnvironmentName":"JavaBeanstalkEnvironment",
+        "TemplateName": {"Ref":"SpringBootBeanStalkConfigurationTemplate"},
+        "VersionLabel": {"Ref": "SpringBootApplicationVersion"}
+      }
+    }
+  }
+}
